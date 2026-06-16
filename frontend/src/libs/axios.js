@@ -1,7 +1,7 @@
   import { create } from "zustand";
 import axios from "axios";
 // API base URL (use Vite env var if provided)
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
+const API_URL = import.meta.env.VITE_API_URL || "/api";
 axios.defaults.baseURL = API_URL;
 // send cookies for auth (backend sets JWT cookie)
 axios.defaults.withCredentials = true;
@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 
 export const useUserStore = create((set,get)=>({
-    user: null,
+    user: null, 
     loading: false,
 
     signup: async({name, email, password})=>{
