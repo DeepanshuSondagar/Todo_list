@@ -2,12 +2,17 @@ import dotenv from "dotenv"
 dotenv.config();
 
 import express from "express";
+import path from "path";             
+import { fileURLToPath } from "url"; 
 import { connectDB } from "./db/connectDB.js";
 import authRouter from "./route/auth.route.js";
 import todoRouter from "./route/todo.route.js";
 import cookieParser from "cookie-parser";
 import { requireAuth } from "./middleware/auth.middleware.js";
 import cors from "cors"
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); 
 
 
 const app = express();
